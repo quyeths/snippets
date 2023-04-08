@@ -1,0 +1,1646 @@
+{
+  "Constructor": {
+    "prefix": "ctor",
+    "body": ["/**", " *", " */", "constructor() {", "\tsuper();", "\t$0", "}"],
+    "description": "Constructor"
+  },
+  "Class Definition": {
+    "prefix": "class",
+    "body": [
+      "class ${1:name} {",
+      "\tconstructor(${2:parameters}) {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Class Definition"
+  },
+  "Interface Definition": {
+    "prefix": "iface",
+    "body": ["interface ${1:name} {", "\t$0", "}"],
+    "description": "Interface Definition"
+  },
+  "Public Method Definition": {
+    "prefix": "public method",
+    "body": ["/**", " * ${1:name}", " */", "public ${1:name}() {", "\t$0", "}"],
+    "description": "Public Method Definition"
+  },
+  "Private Method Definition": {
+    "prefix": "private method",
+    "body": ["private ${1:name}() {", "\t$0", "}"],
+    "description": "Private Method Definition"
+  },
+  "Import external module.": {
+    "prefix": "import statement",
+    "body": ["import { $0 } from \"${1:module}\";"],
+    "description": "Import external module."
+  },
+  "Property getter": {
+    "prefix": "get",
+    "body": [
+      "",
+      "public get ${1:value}() : ${2:string} {",
+      "\t${3:return $0}",
+      "}",
+      ""
+    ],
+    "description": "Property getter"
+  },
+  "Log to the console": {
+    "prefix": "log",
+    "body": ["console.log($1);", "$0"],
+    "description": "Log to the console"
+  },
+  "Log warning to console": {
+    "prefix": "warn",
+    "body": ["console.warn($1);", "$0"],
+    "description": "Log warning to the console"
+  },
+  "Log error to console": {
+    "prefix": "error",
+    "body": ["console.error($1);", "$0"],
+    "description": "Log error to the console"
+  },
+  "Define a full property": {
+    "prefix": "prop",
+    "body": [
+      "",
+      "private _${1:value} : ${2:string};",
+      "public get ${1:value}() : ${2:string} {",
+      "\treturn this._${1:value};",
+      "}",
+      "public set ${1:value}(v : ${2:string}) {",
+      "\tthis._${1:value} = v;",
+      "}",
+      ""
+    ],
+    "description": "Define a full property"
+  },
+  "Triple-slash reference": {
+    "prefix": "ref",
+    "body": ["/// <reference path=\"$1\" />", "$0"],
+    "description": "Triple-slash reference"
+  },
+  "Property setter": {
+    "prefix": "set",
+    "body": [
+      "",
+      "public set ${1:value}(v : ${2:string}) {",
+      "\tthis.$3 = v;",
+      "}",
+      ""
+    ],
+    "description": "Property setter"
+  },
+  "Throw Exception": {
+    "prefix": "throw",
+    "body": ["throw \"$1\";", "$0"],
+    "description": "Throw Exception"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+      "\tconst ${3:element} = ${2:array}[${1:index}];",
+      "\t$0",
+      "}"
+    ],
+    "description": "For Loop"
+  },
+  "For-Each Loop using =>": {
+    "prefix": "foreach =>",
+    "body": ["${1:array}.forEach(${2:element} => {", "\t$0", "});"],
+    "description": "For-Each Loop using =>"
+  },
+  "For-In Loop": {
+    "prefix": "forin",
+    "body": [
+      "for (const ${1:key} in ${2:object}) {",
+      "\tif (${2:object}.hasOwnProperty(${1:key})) {",
+      "\t\tconst ${3:element} = ${2:object}[${1:key}];",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "For-In Loop"
+  },
+  "For-Of Loop": {
+    "prefix": "forof",
+    "body": ["for (const ${1:iterator} of ${2:object}) {", "\t$0", "}"],
+    "description": "For-Of Loop"
+  },
+  "For-Await-Of Loop": {
+    "prefix": "forawaitof",
+    "body": ["for await (const ${1:iterator} of ${2:object}) {", "\t$0", "}"],
+    "description": "For-Await-Of Loop"
+  },
+  "Function Statement": {
+    "prefix": "function",
+    "body": ["function ${1:name}(${2:params}:${3:type}) {", "\t$0", "}"],
+    "description": "Function Statement"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": ["if (${1:condition}) {", "\t$0", "}"],
+    "description": "If Statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ifelse",
+    "body": ["if (${1:condition}) {", "\t$0", "} else {", "\t", "}"],
+    "description": "If-Else Statement"
+  },
+  "New Statement": {
+    "prefix": "new",
+    "body": ["const ${1:name} = new ${2:type}(${3:arguments});$0"],
+    "description": "New Statement"
+  },
+  "Switch Statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:key}) {",
+      "\tcase ${2:value}:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "",
+      "\tdefault:",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Switch Statement"
+  },
+  "While Statement": {
+    "prefix": "while",
+    "body": ["while (${1:condition}) {", "\t$0", "}"],
+    "description": "While Statement"
+  },
+  "Do-While Statement": {
+    "prefix": "dowhile",
+    "body": ["do {", "\t$0", "} while (${1:condition});"],
+    "description": "Do-While Statement"
+  },
+  "Try-Catch Statement": {
+    "prefix": "trycatch",
+    "body": ["try {", "\t$0", "} catch (${1:error}) {", "\t", "}"],
+    "description": "Try-Catch Statement"
+  },
+  "Set Timeout Function": {
+    "prefix": "settimeout",
+    "body": ["setTimeout(() => {", "\t$0", "}, ${1:timeout});"],
+    "description": "Set Timeout Function"
+  },
+  "Region Start": {
+    "prefix": "#region",
+    "body": ["//#region $0"],
+    "description": "Folding Region Start"
+  },
+  "Region End": {
+    "prefix": "#endregion",
+    "body": ["//#endregion"],
+    "description": "Folding Region End"
+  },
+
+  "doctype": {
+    "prefix": "doctype",
+    "body": ["<!DOCTYPE>", "$1"],
+    "description": "HTML - Defines the document type",
+    "scope": "text.html"
+  },
+  "a": {
+    "prefix": "a",
+    "body": "<a href=\"$1\">$2</a>$3",
+    "description": "HTML - Defines a hyperlink",
+    "scope": "text.html"
+  },
+  "abbr": {
+    "prefix": "abbr",
+    "body": "<abbr title=\"$1\">$2</abbr>$3",
+    "description": "HTML - Defines an abbreviation",
+    "scope": "text.html"
+  },
+  "address": {
+    "prefix": "address",
+    "body": ["<address>", "$1", "</address>"],
+    "description": "HTML - Defines an address element",
+    "scope": "text.html"
+  },
+  "area": {
+    "prefix": "area",
+    "body": "<area shape=\"$1\" coords=\"$2\" href=\"$3\" alt=\"$4\">$5",
+    "description": "HTML - Defines an area inside an image map",
+    "scope": "text.html"
+  },
+  "article": {
+    "prefix": "article",
+    "body": ["<article>", "\t$1", "</article>"],
+    "description": "HTML - Defines an article",
+    "scope": "text.html"
+  },
+  "aside": {
+    "prefix": "aside",
+    "body": ["<aside>", "\t$1", "</aside>$2"],
+    "description": "HTML - Defines content aside from the page content",
+    "scope": "text.html"
+  },
+  "audio": {
+    "prefix": "audio",
+    "body": ["<audio controls>", "\t$1", "</audio>"],
+    "description": "HTML - Defines sounds content",
+    "scope": "text.html"
+  },
+  "b": {
+    "prefix": "b",
+    "body": "<b>$1</b>$2",
+    "description": "HTML - Defines bold text",
+    "scope": "text.html"
+  },
+  "base": {
+    "prefix": "base",
+    "body": "<base href=\"$1\" target=\"$2\">$3",
+    "description": "HTML - Defines a base URL for all the links in a page",
+    "scope": "text.html"
+  },
+  "bdi": {
+    "prefix": "bdi",
+    "body": "<bdi>$1</bdi>$2",
+    "description": "HTML - Used to isolate text that is of unknown directionality",
+    "scope": "text.html"
+  },
+  "bdo": {
+    "prefix": "bdo",
+    "body": ["<bdo dir=\"$1\">", "$2", "</bdo>"],
+    "description": "HTML - Defines the direction of text display",
+    "scope": "text.html"
+  },
+  "big": {
+    "prefix": "big",
+    "body": "<big>$1</big>$2",
+    "description": "HTML - Used to make text bigger",
+    "scope": "text.html"
+  },
+  "blockquote": {
+    "prefix": "blockquote",
+    "body": ["<blockquote cite=\"$2\">", "\t$1", "</blockquote>"],
+    "description": "HTML - Defines a long quotation",
+    "scope": "text.html"
+  },
+  "body": {
+    "prefix": "body",
+    "body": ["<body>", "\t$0", "</body>"],
+    "description": "HTML - Defines the body element",
+    "scope": "text.html"
+  },
+  "br": {
+    "prefix": "br",
+    "body": "<br>",
+    "description": "HTML - Inserts a single line break",
+    "scope": "text.html"
+  },
+  "button": {
+    "prefix": "button",
+    "body": "<button type=\"$1\">$2</button>$3",
+    "description": "HTML - Defines a push button",
+    "scope": "text.html"
+  },
+  "canvas": {
+    "prefix": "canvas",
+    "body": "<canvas id=\"$1\">$2</canvas>$3",
+    "description": "HTML - Defines graphics",
+    "scope": "text.html"
+  },
+  "caption": {
+    "prefix": "caption",
+    "body": "<caption>$1</caption>$2",
+    "description": "HTML - Defines a table caption",
+    "scope": "text.html"
+  },
+  "cite": {
+    "prefix": "cite",
+    "body": "<cite>$1</cite>$2",
+    "description": "HTML - Defines a citation",
+    "scope": "text.html"
+  },
+  "code": {
+    "prefix": "code",
+    "body": "<code>$1</code>$2",
+    "description": "HTML - Defines computer code text",
+    "scope": "text.html"
+  },
+  "col": {
+    "prefix": "col",
+    "body": "<col>$2",
+    "description": "HTML - Defines attributes for table columns",
+    "scope": "text.html"
+  },
+  "colgroup": {
+    "prefix": "colgroup",
+    "body": ["<colgroup>", "\t$1", "</colgroup>"],
+    "description": "HTML - Defines group of table columns",
+    "scope": "text.html"
+  },
+  "command": {
+    "prefix": "command",
+    "body": "<command>$1</command>$2",
+    "description": "HTML - Defines a command button [not supported]",
+    "scope": "text.html"
+  },
+  "datalist": {
+    "prefix": "datalist",
+    "body": ["<datalist>", "\t$1", "</datalist>"],
+    "description": "HTML - Defines a dropdown list",
+    "scope": "text.html"
+  },
+  "dd": {
+    "prefix": "dd",
+    "body": "<dd>$1</dd>$2",
+    "description": "HTML - Defines a definition description",
+    "scope": "text.html"
+  },
+  "del": {
+    "prefix": "del",
+    "body": "<del>$1</del>$2",
+    "description": "HTML - Defines deleted text",
+    "scope": "text.html"
+  },
+  "details": {
+    "prefix": "details",
+    "body": ["<details>", "\t$1", "</details>"],
+    "description": "HTML - Defines details of an element",
+    "scope": "text.html"
+  },
+  "dialog": {
+    "prefix": "dialog",
+    "body": "<dialog>$1</dialog>$2",
+    "description": "HTML - Defines a dialog (conversation)",
+    "scope": "text.html"
+  },
+  "dfn": {
+    "prefix": "dfn",
+    "body": "<dfn>$1</dfn>$2",
+    "description": "HTML - Defines a definition term",
+    "scope": "text.html"
+  },
+  "div": {
+    "prefix": "div",
+    "body": ["<div>", "\t$1", "</div>"],
+    "description": "HTML - Defines a section in a document",
+    "scope": "text.html"
+  },
+  "dl": {
+    "prefix": "dl",
+    "body": ["<dl>", "\t$1", "</dl>"],
+    "description": "HTML - Defines a definition list",
+    "scope": "text.html"
+  },
+  "dt": {
+    "prefix": "dt",
+    "body": "<dt>$1</dt>$2",
+    "description": "HTML - Defines a definition term",
+    "scope": "text.html"
+  },
+  "em": {
+    "prefix": "em",
+    "body": "<em>$1</em>$2",
+    "description": "HTML - Defines emphasized text",
+    "scope": "text.html"
+  },
+  "embed": {
+    "prefix": "embed",
+    "body": "<embed src=\"$1\">$2",
+    "description": "HTML - Defines external interactive content ot plugin",
+    "scope": "text.html"
+  },
+  "fieldset": {
+    "prefix": "fieldset",
+    "body": ["<fieldset>", "\t$1", "</fieldset>"],
+    "description": "HTML - Defines a fieldset",
+    "scope": "text.html"
+  },
+  "figcaption": {
+    "prefix": "figcaption",
+    "body": "<figcaption>$1</figcaption>$2",
+    "description": "HTML - Defines a caption for a figure",
+    "scope": "text.html"
+  },
+  "figure": {
+    "prefix": "figure",
+    "body": ["<figure>", "\t$1", "</figure>"],
+    "description": "HTML - Defines a group of media content, and their caption",
+    "scope": "text.html"
+  },
+  "footer": {
+    "prefix": "footer",
+    "body": ["<footer>", "\t$1", "</footer>"],
+    "description": "HTML - Defines a footer for a section or page",
+    "scope": "text.html"
+  },
+  "form": {
+    "prefix": "form",
+    "body": ["<form>", "\t$1", "</form>"],
+    "description": "HTML - Defines a form",
+    "scope": "text.html"
+  },
+  "h1": {
+    "prefix": "h1",
+    "body": "<h1>$1</h1>$2",
+    "description": "HTML - Defines header 1",
+    "scope": "text.html"
+  },
+  "h2": {
+    "prefix": "h2",
+    "body": "<h2>$1</h2>$2",
+    "description": "HTML - Defines header 2",
+    "scope": "text.html"
+  },
+  "h3": {
+    "prefix": "h3",
+    "body": "<h3>$1</h3>$2",
+    "description": "HTML - Defines header 3",
+    "scope": "text.html"
+  },
+  "h4": {
+    "prefix": "h4",
+    "body": "<h4>$1</h4>$2",
+    "description": "HTML - Defines header 4",
+    "scope": "text.html"
+  },
+  "h5": {
+    "prefix": "h5",
+    "body": "<h5>$1</h5>$2",
+    "description": "HTML - Defines header 5",
+    "scope": "text.html"
+  },
+  "h6": {
+    "prefix": "h6",
+    "body": "<h6>$1</h6>$2",
+    "description": "HTML - Defines header 6",
+    "scope": "text.html"
+  },
+  "head": {
+    "prefix": "head",
+    "body": ["<head>", "\t$1", "</head>"],
+    "description": "HTML - Defines information about the document",
+    "scope": "text.html"
+  },
+  "header": {
+    "prefix": "header",
+    "body": ["<header>", "\t$1", "</header>"],
+    "description": "HTML - Defines a header for a section of page",
+    "scope": "text.html"
+  },
+  "hgroup": {
+    "prefix": "hgroup",
+    "body": ["<hgroup>", "\t$1", "</hgroup>"],
+    "description": "HTML - Defines information about a section in a document",
+    "scope": "text.html"
+  },
+  "hr": {
+    "prefix": "hr",
+    "body": "<hr>",
+    "description": "HTML - Defines a horizontal rule",
+    "scope": "text.html"
+  },
+  "html": {
+    "prefix": "html",
+    "body": ["<html>", "\t$0", "</html>"],
+    "description": "HTML - Defines an html document",
+    "scope": "text.html"
+  },
+  "html5": {
+    "prefix": "html5",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"$1en\">",
+      "\t<head>",
+      "\t\t<title>$2</title>",
+      "\t\t<meta charset=\"UTF-8\">",
+      "\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "\t\t<link href=\"$3css/style.css\" rel=\"stylesheet\">",
+      "\t</head>",
+      "\t<body>",
+      "\t$0",
+      "\t</body>",
+      "</html>"
+    ],
+    "description": "HTML - Defines a template for a html5 document",
+    "scope": "text.html"
+  },
+  "i": {
+    "prefix": "i",
+    "body": "<i>$1</i>$2",
+    "description": "HTML - Defines italic text",
+    "scope": "text.html"
+  },
+  "iframe": {
+    "prefix": "iframe",
+    "body": "<iframe src=\"$1\">$2</iframe>$3",
+    "description": "HTML - Defines an inline sub window",
+    "scope": "text.html"
+  },
+  "img": {
+    "prefix": "img",
+    "body": "<img src=\"$1\" alt=\"$2\">$3",
+    "description": "HTML - Defines an image",
+    "scope": "text.html"
+  },
+  "input": {
+    "prefix": "input",
+    "body": "<input type=\"$1\" name=\"$2\" value=\"$3\">$4",
+    "description": "HTML - Defines an input field",
+    "scope": "text.html"
+  },
+  "ins": {
+    "prefix": "ins",
+    "body": "<ins>$1</ins>$2",
+    "description": "HTML - Defines inserted text",
+    "scope": "text.html"
+  },
+  "keygen": {
+    "prefix": "keygen",
+    "body": "<keygen name=\"$1\">$2",
+    "description": "HTML - Defines a generated key in a form",
+    "scope": "text.html"
+  },
+  "kbd": {
+    "prefix": "kbd",
+    "body": "<kbd>$1</kbd>$2",
+    "description": "HTML - Defines keyboard text",
+    "scope": "text.html"
+  },
+  "label": {
+    "prefix": "label",
+    "body": "<label for=\"$1\">$2</label>$3",
+    "description": "HTML - Defines an inline window",
+    "scope": "text.html"
+  },
+  "legend": {
+    "prefix": "legend",
+    "body": "<legend>$1</legend>$2",
+    "description": "HTML - Defines a title in a fieldset",
+    "scope": "text.html"
+  },
+  "li": {
+    "prefix": "li",
+    "body": "<li>$1</li>$2",
+    "description": "HTML - Defines a list item",
+    "scope": "text.html"
+  },
+  "link": {
+    "prefix": "link",
+    "body": "<link rel=\"$1\" type=\"$2\" href=\"$3\">$4",
+    "description": "HTML - Defines a resource reference",
+    "scope": "text.html"
+  },
+  "main": {
+    "prefix": "main",
+    "body": ["<main>", "\t$1", "</main>"],
+    "description": "HTML - Defines an image map",
+    "scope": "text.html"
+  },
+  "map": {
+    "prefix": "map",
+    "body": ["<map name=\"$1\">", "\t$2", "</map>"],
+    "description": "HTML - Defines an image map",
+    "scope": "text.html"
+  },
+  "mark": {
+    "prefix": "mark",
+    "body": "<mark>$1</mark>$2",
+    "description": "HTML - Defines marked text",
+    "scope": "text.html"
+  },
+  "menu": {
+    "prefix": "menu",
+    "body": ["<menu>", "\t$1", "</menu>"],
+    "description": "HTML - Defines a menu list",
+    "scope": "text.html"
+  },
+  "menuitem": {
+    "prefix": "menuitem",
+    "body": "<menuitem>$1</menuitem>$2",
+    "description": "HTML - Defines a menu item [firefox only]",
+    "scope": "text.html"
+  },
+  "meta": {
+    "prefix": "meta",
+    "body": "<meta name=\"$1\" content=\"$2\">$3",
+    "description": "HTML - Defines meta information",
+    "scope": "text.html"
+  },
+  "meter": {
+    "prefix": "meter",
+    "body": "<meter value=\"$1\">$2</meter>$3",
+    "description": "HTML - Defines measurement within a predefined range",
+    "scope": "text.html"
+  },
+  "nav": {
+    "prefix": "nav",
+    "body": ["<nav>", "\t$1", "</nav>"],
+    "description": "HTML - Defines navigation links",
+    "scope": "text.html"
+  },
+  "noscript": {
+    "prefix": "noscript",
+    "body": ["<noscript>", "$1", "</noscript>"],
+    "description": "HTML - Defines a noscript section",
+    "scope": "text.html"
+  },
+  "object": {
+    "prefix": "object",
+    "body": "<object width=\"$1\" height=\"$2\" data=\"$3\">$4</object>$5",
+    "description": "HTML - Defines an embedded object",
+    "scope": "text.html"
+  },
+  "ol": {
+    "prefix": "ol",
+    "body": ["<ol>", "\t$1", "</ol>"],
+    "description": "HTML - Defines an ordered list",
+    "scope": "text.html"
+  },
+  "optgroup": {
+    "prefix": "optgroup",
+    "body": ["<optgroup>", "\t$1", "</optgroup>"],
+    "description": "HTML - Defines an option group",
+    "scope": "text.html"
+  },
+  "option": {
+    "prefix": "option",
+    "body": "<option value=\"$1\">$2</option>$3",
+    "description": "HTML - Defines an option in a drop-down list",
+    "scope": "text.html"
+  },
+  "output": {
+    "prefix": "output",
+    "body": "<output name=\"$1\" for=\"$2\">$3</output>$4",
+    "description": "HTML - Defines some types of output",
+    "scope": "text.html"
+  },
+  "p": {
+    "prefix": "p",
+    "body": "<p>$1</p>$2",
+    "description": "HTML - Defines a paragraph",
+    "scope": "text.html"
+  },
+  "param": {
+    "prefix": "param",
+    "body": "<param name=\"$1\" value=\"$2\">$3",
+    "description": "HTML - Defines a parameter for an object",
+    "scope": "text.html"
+  },
+  "pre": {
+    "prefix": "pre",
+    "body": ["<pre>$1</pre>"],
+    "description": "HTML - Defines preformatted text",
+    "scope": "text.html"
+  },
+  "progress": {
+    "prefix": "progress",
+    "body": "<progress value=\"$1\" max=\"$2\">$3</progress>$4",
+    "description": "HTML - Defines progress of a task of any kind",
+    "scope": "text.html"
+  },
+  "q": {
+    "prefix": "q",
+    "body": "<q>$1</q>$2",
+    "description": "HTML - Defines a short quotation",
+    "scope": "text.html"
+  },
+  "rp": {
+    "prefix": "rp",
+    "body": "<rp>$1</rp>$2",
+    "description": "HTML - Used in ruby annotations to define what to show browsers that do not support the ruby element",
+    "scope": "text.html"
+  },
+  "rt": {
+    "prefix": "rt",
+    "body": "<rt>$1</rt>$2",
+    "description": "HTML - Defines explanation to ruby annotations",
+    "scope": "text.html"
+  },
+  "ruby": {
+    "prefix": "ruby",
+    "body": ["<ruby>", "$1", "</ruby>"],
+    "description": "HTML - Defines ruby annotations",
+    "scope": "text.html"
+  },
+  "s": {
+    "prefix": "s",
+    "body": "<s>$1</s>$2",
+    "description": "HTML - Used to define strikethrough text",
+    "scope": "text.html"
+  },
+  "samp": {
+    "prefix": "samp",
+    "body": "<samp>$1</samp>$2",
+    "description": "HTML - Defines sample computer code",
+    "scope": "text.html"
+  },
+  "script": {
+    "prefix": "script",
+    "body": ["<script>", "\t$1", "</script>"],
+    "description": "HTML - Defines a script",
+    "scope": "text.html"
+  },
+  "section": {
+    "prefix": "section",
+    "body": ["<section>", "\t$1", "</section>"],
+    "description": "HTML - Defines a section",
+    "scope": "text.html"
+  },
+  "select": {
+    "prefix": "select",
+    "body": ["<select>", "\t$1", "</select>"],
+    "description": "HTML - Defines a selectable list",
+    "scope": "text.html"
+  },
+  "small": {
+    "prefix": "small",
+    "body": "<small>$1</small>$2",
+    "description": "HTML - Defines small text",
+    "scope": "text.html"
+  },
+  "source": {
+    "prefix": "source",
+    "body": "<source src=\"$1\" type=\"$2\">$3",
+    "description": "HTML - Defines media resource",
+    "scope": "text.html"
+  },
+  "span": {
+    "prefix": "span",
+    "body": "<span>$1</span>$2",
+    "description": "HTML - Defines a section in a document",
+    "scope": "text.html"
+  },
+  "strong": {
+    "prefix": "strong",
+    "body": "<strong>$1</strong>$2",
+    "description": "HTML - Defines strong text",
+    "scope": "text.html"
+  },
+  "style": {
+    "prefix": "style",
+    "body": ["<style>", "$1", "</style>"],
+    "description": "HTML - Defines a style definition",
+    "scope": "text.html"
+  },
+  "sub": {
+    "prefix": "sub",
+    "body": "<sub>$1</sub>$2",
+    "description": "HTML - Defines sub-scripted text",
+    "scope": "text.html"
+  },
+  "sup": {
+    "prefix": "sup",
+    "body": "<sup>$1</sup>$2",
+    "description": "HTML - Defines super-scripted text",
+    "scope": "text.html"
+  },
+  "summary": {
+    "prefix": "summary",
+    "body": "<summary>$1</summary>$2",
+    "description": "HTML - Defines a visible heading for the detail element [limited support]",
+    "scope": "text.html"
+  },
+  "table": {
+    "prefix": "table",
+    "body": ["<table>", "\t$1", "</table>"],
+    "description": "HTML - Defines a table",
+    "scope": "text.html"
+  },
+  "tbody": {
+    "prefix": "tbody",
+    "body": ["<tbody>", "\t$1", "</tbody>"],
+    "description": "HTML - Defines a table body",
+    "scope": "text.html"
+  },
+  "td": {
+    "prefix": "td",
+    "body": "<td>$1</td>$2",
+    "description": "HTML - Defines a table cell",
+    "scope": "text.html"
+  },
+  "textarea": {
+    "prefix": "textarea",
+    "body": "<textarea rows=\"$1\" cols=\"$2\">$3</textarea>$4",
+    "description": "HTML - Defines a text area",
+    "scope": "text.html"
+  },
+  "tfoot": {
+    "prefix": "tfoot",
+    "body": ["<tfoot>", "\t$1", "</tfoot>"],
+    "description": "HTML - Defines a table footer",
+    "scope": "text.html"
+  },
+  "thead": {
+    "prefix": "thead",
+    "body": ["<thead>", "$1", "</thead>"],
+    "description": "HTML - Defines a table head",
+    "scope": "text.html"
+  },
+  "th": {
+    "prefix": "th",
+    "body": "<th>$1</th>$2",
+    "description": "HTML - Defines a table header",
+    "scope": "text.html"
+  },
+  "time": {
+    "prefix": "time",
+    "body": "<time datetime=\"$1\">$2</time>$3",
+    "description": "HTML - Defines a date/time",
+    "scope": "text.html"
+  },
+  "title": {
+    "prefix": "title",
+    "body": "<title>$1</title>$2",
+    "description": "HTML - Defines the document title",
+    "scope": "text.html"
+  },
+  "tr": {
+    "prefix": "tr",
+    "body": "<tr>$1</tr>$2",
+    "description": "HTML - Defines a table row",
+    "scope": "text.html"
+  },
+  "track": {
+    "prefix": "track",
+    "body": "<track src=\"$1\" kind=\"$2\" srclang=\"$3\" label=\"$4\">$5",
+    "description": "HTML - Defines a table row",
+    "scope": "text.html"
+  },
+  "u": {
+    "prefix": "u",
+    "body": "<u>$1</u>$2",
+    "description": "HTML - Used to define underlined text",
+    "scope": "text.html"
+  },
+  "ul": {
+    "prefix": "ul",
+    "body": ["<ul>", "\t$1", "</ul>"],
+    "description": "HTML - Defines an unordered list",
+    "scope": "text.html"
+  },
+  "var": {
+    "prefix": "var",
+    "body": "<var>$1</var>$2",
+    "description": "HTML - Defines a variable",
+    "scope": "text.html"
+  },
+  "video": {
+    "prefix": "video",
+    "body": ["<video width=\"$1\" height=\"$2\" controls>", "\t$3", "</video>"],
+    "description": "HTML - Defines a video",
+    "scope": "text.html"
+  },
+  "Typescript React PureComponent": {
+    "prefix": "rpc",
+    "body": [
+      "import * as React from 'react'",
+      "",
+      "export class $1 extends React.PureComponent {",
+      "\trender() {",
+      "\t\treturn ($2);",
+      "}}"
+    ],
+    "description": "Typescript React PureComponent"
+  },
+
+  "Twind": {
+    "prefix": "cc",
+    "body": ["className={tw`$1`}"],
+    "description": "Twind"
+  },
+
+  "Typescript React Function Component": {
+    "prefix": "rh",
+    "body": [
+      "import React from 'react'",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "$1",
+      "}",
+      "",
+      "export const $TM_FILENAME_BASE: React.FC<${TM_FILENAME_BASE}Props> = ({$2}) => {",
+      "\t\treturn ($3);",
+      "}"
+    ],
+    "description": "Typescript React Function Component"
+  },
+  "React Native StyleSheet": {
+    "prefix": "rnss",
+    "body": [
+      "import {StyleSheet} from 'react-native'",
+      "const styles = StyleSheet.create({",
+      "",
+      "});"
+    ],
+    "description": "React Native StyleSheet"
+  },
+  "Toggle State": {
+    "prefix": "tog",
+    "body": ["this.setState(state => ({", "\topen: !state.open", "}));"],
+    "description": "toggle state"
+  },
+  "console.log": {
+    "prefix": "cl",
+    "body": ["console.log($1)"],
+    "description": "console.log"
+  },
+  "className={classnames()}": {
+    "prefix": "cc",
+    "body": ["className={classnames('$1')}"],
+    "description": "tailwind react stuff"
+  },
+  "Apollo Query Component": {
+    "prefix": "apq",
+    "body": [
+      "interface Props {",
+      "  children: (data: QueryResult<$1, OperationVariables>) => JSX.Element;",
+      "}",
+      "",
+      "export class $2 extends React.PureComponent<Props> {",
+      "  render() {",
+      "    return (",
+      "     <Query<$1> query={$3}>{x => this.props.children(x)}</Query>",
+      "    );",
+      "  }",
+      "}"
+    ],
+    "description": "Apollo Query Component"
+  },
+  "Type GraphQL Resolver": {
+    "prefix": "resolver",
+    "body": [
+      "import { Resolver } from \"type-graphql\";",
+      "",
+      "@Resolver()",
+      "export class $1Resolver {",
+      "  @$2()",
+      "  async $3() {}",
+      "}"
+    ],
+    "description": "TypeGraphQL Resolver"
+  },
+  "Util Function": {
+    "prefix": "ut",
+    "body": ["export const $TM_FILENAME_BASE = () => {", "", "}"],
+    "description": "Util Function"
+  },
+  "Import Aspect Ratio": {
+    "prefix": "i-aspect-rato",
+    "body": "import { AspectRatio } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Aspect Ratio"
+  },
+  "Import Box": {
+    "prefix": "i-box",
+    "body": "import { Box } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Box"
+  },
+  "Import Center": {
+    "prefix": "i-center",
+    "body": "import { Center } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Center"
+  },
+  "Import Container": {
+    "prefix": "i-container",
+    "body": "import { Container } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Container"
+  },
+  "Import Flex": {
+    "prefix": "i-flex",
+    "body": "import { Flex } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Flex"
+  },
+  "Import Grid": {
+    "prefix": "i-grid",
+    "body": "import { Grid } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Grid"
+  },
+  "Import SimpleGrid": {
+    "prefix": "i-simple-grid",
+    "body": "import { SimpleGrid } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import SimpleGrid"
+  },
+  "Import Stack": {
+    "prefix": "i-stack",
+    "body": "import { Stack } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Stack"
+  },
+  "Import HStack": {
+    "prefix": "i-h-stack",
+    "body": "import { HStack } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import HStack"
+  },
+  "Import VStack": {
+    "prefix": "i-v-stack",
+    "body": "import { VStack } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import VStack"
+  },
+  "Import Wrap": {
+    "prefix": "i-wrap",
+    "body": "import { Wrap } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Wrap"
+  },
+  "Import Text": {
+    "prefix": "i-text",
+    "body": "import { Text } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Text"
+  },
+  "Import Heading": {
+    "prefix": "i-heading",
+    "body": "import { Heading } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Heading"
+  },
+  "Import Highlight": {
+    "prefix": "i-highlight",
+    "body": "import { Highlight } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Highlight"
+  },
+  "Import Avatar": {
+    "prefix": "i-avatar",
+    "body": "import { Avatar } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Avatar"
+  },
+  "Import AvatarBadge": {
+    "prefix": "i-avatar-badge",
+    "body": "import { AvatarBadge } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import AvatarBadge"
+  },
+  "Import AvatarGroup": {
+    "prefix": "i-avatar-group",
+    "body": "import { AvatarGroup } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import AvatarGroup"
+  },
+  "Import Icon": {
+    "prefix": "i-icon",
+    "body": "import { Icon } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Icon"
+  },
+  "Import Image": {
+    "prefix": "i-image",
+    "body": "import { Image } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Image"
+  },
+  "Import useBoolean": {
+    "prefix": "i-use-boolean",
+    "body": "import { useBoolean } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useBoolean"
+  },
+  "Import useBreakpointValue": {
+    "prefix": "i-use-breakpoint-value",
+    "body": "import { useBreakpointValue } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useBreakpointValue"
+  },
+  "Import useClipboard": {
+    "prefix": "i-use-clipboard",
+    "body": "import { useClipboard } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useClipboard"
+  },
+  "Import useConst": {
+    "prefix": "i-use-const",
+    "body": "import { useConst } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useConst"
+  },
+  "Import useControllableState": {
+    "prefix": "i-use-controllable-state",
+    "body": "import { useControllableState } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useControllableState"
+  },
+  "Import useDimensions": {
+    "prefix": "i-use-dimensions",
+    "body": "import { useDimensions } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useDimensions"
+  },
+  "Import useDisclosure": {
+    "prefix": "i-use-disclosure",
+    "body": "import { useDisclosure } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useDisclosure"
+  },
+  "Import useMediaQuery": {
+    "prefix": "i-use-media-query",
+    "body": "import { useMediaQuery } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useMediaQuery"
+  },
+  "Import useMergeRefs": {
+    "prefix": "i-use-merge-refs",
+    "body": "import { useMergeRefs } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useMergeRefs"
+  },
+  "Import useOutsideClick": {
+    "prefix": "i-use-outside-click",
+    "body": "import { useOutsideClick } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useOutsideClick"
+  },
+  "Import usePrefersReducedMotion": {
+    "prefix": "i-use-prefers-reduced-motion",
+    "body": "import { usePrefersReducedMotion } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import usePrefersReducedMotion"
+  },
+  "Import useTheme": {
+    "prefix": "i-use-theme",
+    "body": "import { useTheme } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useTheme"
+  },
+  "Import useToken": {
+    "prefix": "i-use-token",
+    "body": "import { useToken } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import useToken"
+  },
+  "Import Button": {
+    "prefix": ["i-btn", "i-button"],
+    "body": "import { Button } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Button"
+  },
+  "Import Button Group": {
+    "prefix": "i-button-group",
+    "body": "import { ButtonGroup } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import ButtonGroup"
+  },
+  "Import Checkbox": {
+    "prefix": "i-checkbox",
+    "body": "import { Checkbox } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Checkbox"
+  },
+  "Import Checkbox Group": {
+    "prefix": "i-checkbox-group",
+    "body": "import { CheckboxGroup } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import CheckboxGroup"
+  },
+  "Import Editable": {
+    "prefix": "i-editable",
+    "body": [
+      "import {",
+      "\tEditable",
+      "\tEditableInput",
+      "\tEditableTextarea",
+      "\tEditablePreview",
+      "} from '@chakra-ui/react'"
+    ],
+    "description": "🪄 Chakra UI: Import Editable"
+  },
+  "Import FormControl": {
+    "prefix": "i-form-control",
+    "body": "import { FormControl } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import FormControl"
+  },
+  "Import FormLabel": {
+    "prefix": "i-form-label",
+    "body": "import { FormLabel } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import FormLabel"
+  },
+  "Import FormErrorMessage": {
+    "prefix": "i-form-error-message",
+    "body": "import { FormErrorMessage } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import FormErrorMessage"
+  },
+  "Import FormHelperText": {
+    "prefix": "i-form-helper-text",
+    "body": "import { FormHelperText } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import FormHelperText"
+  },
+  "Import IconButton": {
+    "prefix": ["i-icon-btn", "i-icon-button"],
+    "body": "import { IconButton } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import IconButton"
+  },
+  "Import Input": {
+    "prefix": "i-input",
+    "body": "import { Input } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Input"
+  },
+  "Import NumberInput": {
+    "prefix": "i-number-input",
+    "body": [
+      "import {",
+      "\tNumberInput",
+      "\tNumberInputField",
+      "\tNumberInputStepper",
+      "\tNumberIncrementStepper",
+      "\tNumberDecrementStepper",
+      "} from '@chakra-ui/react'"
+    ],
+    "description": "🪄 Chakra UI: Import Number Input"
+  },
+  "Import Pin Input": {
+    "prefix": "i-number-input",
+    "body": "import { PinInput, PinInputField } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Pin Input"
+  },
+  "Import Radio": {
+    "prefix": "i-radio",
+    "body": "import { Radio } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Radio"
+  },
+  "Import Radio Group": {
+    "prefix": "i-radio-group",
+    "body": "import { RadioGroup } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import RadioGroup"
+  },
+  "Import Select": {
+    "prefix": "i-select",
+    "body": "import { Select } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Select"
+  },
+  "Import Switch": {
+    "prefix": "i-switch",
+    "body": "import { Switch } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Switch"
+  },
+  "Import Textarea": {
+    "prefix": "i-textarea",
+    "body": "import { Textarea } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Textarea"
+  },
+  "Import RangeSlider": {
+    "prefix": "i-range-slider",
+    "body": [
+      "import {",
+      "\tRangeSlider",
+      "\tRangeSliderTrack",
+      "\tRangeSliderFilledTrack",
+      "\tRangeSliderThumb",
+      "} from '@chakra-ui/react'"
+    ],
+    "description": "🪄 Chakra UI: Import Range Slider"
+  },
+  "Import Slider": {
+    "prefix": "i-slider",
+    "body": [
+      "import {",
+      "\tSlider",
+      "\tSliderTrack",
+      "\tSliderFilledTrack",
+      "\tSliderThumb",
+      "\tSliderMark",
+      "} from '@chakra-ui/react'"
+    ],
+    "description": "🪄 Chakra UI: Import Slider"
+  },
+  "Import Badge": {
+    "prefix": "i-badge",
+    "body": "import { Badge } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Badge"
+  },
+  "Import Code": {
+    "prefix": "i-code",
+    "body": "import { Code } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Code"
+  },
+  "Import Divider": {
+    "prefix": "i-divider",
+    "body": "import { Divider } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Divider"
+  },
+  "Import Kbd": {
+    "prefix": "i-kbd",
+    "body": "import { Kbd } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Kbd"
+  },
+  "Import Tag": {
+    "prefix": "i-tag",
+    "body": "import { Tag } from '@chakra-ui/react'",
+    "description": "🪄 Chakra UI: Import Tag"
+  },
+  "chakra-hook-use-theme": {
+    "prefix": "chakra-use-theme",
+    "body": "const theme = useTheme()",
+    "description": "🪄 Chakra UI: useTheme"
+  },
+  "chakra-hook-use-outside-click": {
+    "prefix": "chakra-use-outside-click",
+    "body": ["useOutsideClick({", "\tref: $1,", "\thandler: () => $2,", "})"],
+    "description": "🪄 Chakra UI: useOutSideClick"
+  },
+  "chakra-hook-use-disclosure": {
+    "prefix": "chakra-use-disclosure",
+    "body": "const { isOpen, onOpen, onClose } = useDisclosure()",
+    "description": "🪄 Chakra UI: useDisclosure"
+  },
+  "chakra-hook-use-clipboard": {
+    "prefix": "chakra-use-clipboard",
+    "body": "const { onCopy, value, setValue, hasCopied } = useClipboard('');",
+    "description": "🪄 Chakra UI: useClipboard"
+  },
+  "chakra-hook-use-boolean": {
+    "prefix": "chakra-use-boolean",
+    "body": "const [flag, setFlag] = useBoolean()",
+    "description": "🪄 Chakra UI: useBoolean"
+  },
+  "chakra-hook-use-breakpoint-value": {
+    "prefix": "chakra-use-breakpoint-value",
+    "body": "const variant = useBreakpointValue($1)",
+    "description": "🪄 Chakra UI: useBreakpointValue"
+  },
+  "chakra-hook-use-const": {
+    "prefix": "chakra-use-const",
+    "body": "const $1 = useConst($2)",
+    "description": "🪄 Chakra UI: useConst"
+  },
+  "chakra-hook-use-dimensions": {
+    "prefix": "chakra-use-dimensions",
+    "body": "const dimensions = useDimensions(elementRef)",
+    "description": "🪄 Chakra UI: useDimensions"
+  },
+  "chakra-hook-use-controllableState": {
+    "prefix": "chakra-use-controllableState",
+    "body": "const [$1, set$2] = useControllableState($3)",
+    "description": "🪄 Chakra UI: useControllableState"
+  },
+  "chakra-hook-use-mediaQuery": {
+    "prefix": "chakra-use-mediaQuery",
+    "body": "const [$1] = useMediaQuery('$2')",
+    "description": "🪄 Chakra UI: useMediaQuery"
+  },
+  "chakra-use-merge-refs": {
+    "prefix": "chakra-use-merge-refs",
+    "body": "const refs = useMergeRefs($1, $2)",
+    "description": "🪄 Chakra UI: useMergeRefs"
+  },
+  "chakra-use-prefers-reduced-motion": {
+    "prefix": "chakra-use-prefers-reduced-motion",
+    "body": "const prefersReducedMotion = usePrefersReducedMotion()",
+    "description": "🪄 Chakra UI: usePrefersReducedMotion"
+  },
+  "chakra-use-token": {
+    "prefix": "chakra-use-token",
+    "body": "const [$1] = useToken($2, [$3])",
+    "description": "🪄 Chakra UI: useToken"
+  },
+  "chakra-layout-aspect-ratio": {
+    "prefix": "chakra-aspect-ratio",
+    "body": ["<AspectRatio maxW='$1' ratio={$2}>", "\t$3", "</AspectRatio>"],
+    "description": "🪄 Chakra UI: Aspect Ratio"
+  },
+  "chakra-layout-box": {
+    "prefix": "chakra-box",
+    "body": ["<Box>", "\t$1", "</Box>"],
+    "description": "🪄 Chakra UI: Box"
+  },
+  "chakra-layout-center": {
+    "prefix": "chakra-center",
+    "body": ["<Center w='$1' h='$2'>", "\t$3", "</Center>"],
+    "description": "🪄 Chakra UI: Center"
+  },
+  "chakra-layout-container": {
+    "prefix": "chakra-container",
+    "body": ["<Container maxW='$1'>", "\t$2", "</Container>"],
+    "description": "🪄 Chakra UI: Container"
+  },
+  "chakra-layout-flex": {
+    "prefix": "chakra-flex",
+    "body": ["<Flex>", "\t$1", "</Flex>"],
+    "description": "🪄 Chakra UI: Flex"
+  },
+  "chakra-layout-grid": {
+    "prefix": "chakra-grid",
+    "body": ["<Grid templateColumns='$1' gap={$2}>", "\t$3", "</Grid>"],
+    "description": "🪄 Chakra UI: Grid"
+  },
+  "chakra-layout-simple-grid": {
+    "prefix": "chakra-simple-grid",
+    "body": ["<SimpleGrid columns={$1} spacing={$2}>", "\t$3", "</SimpleGrid>"],
+    "description": "🪄 Chakra UI: Simple grid"
+  },
+  "chakra-layout-stack": {
+    "prefix": "chakra-stack",
+    "body": ["<Stack direction={$1} spacing={$2}>", "\t$3", "</Stack>"],
+    "description": "🪄 Chakra UI: Stack"
+  },
+  "chakra-layout-hstack": {
+    "prefix": "chakra-hstack",
+    "body": ["<HStack spacing={$1}>", "\t$2", "</HStack>"],
+    "description": "🪄 Chakra UI: HStack"
+  },
+  "chakra-layout-vstack": {
+    "prefix": "chakra-vstack",
+    "body": ["<VStack spacing={$1}>", "\t$2", "</VStack>"],
+    "description": "🪄 Chakra UI: VStack"
+  },
+  "chakra-layout-wrap": {
+    "prefix": "chakra-wrap",
+    "body": ["<Wrap>", "\t$1", "</Wrap>"],
+    "description": "🪄 Chakra UI: Wrap"
+  },
+  "chakra-forms-button": {
+    "prefix": ["chakra-btn", "chakra-button"],
+    "body": ["<Button variant='$1'>", "\t$2", "</Button>"],
+    "description": "🪄 Chakra UI: Button"
+  },
+  "chakra-forms-checkbox": {
+    "prefix": "chakra-checkbox",
+    "body": ["<Checkbox size='$1'>", "\t$2", "</Checkbox>"],
+    "description": "🪄 Chakra UI: Checkbox"
+  },
+  "chakra-forms-checkbox-group": {
+    "prefix": "chakra-checkbox-group",
+    "body": ["<CheckboxGroup defaultValue={[$1]}>", "\t$2", "</CheckboxGroup>"],
+    "description": "🪄 Chakra UI: Checkbox group"
+  },
+  "chakra-forms-editable": {
+    "prefix": "chakra-editable",
+    "body": ["<Editable defaultValue='$1'>", "\t$2", "</Editable>"],
+    "description": "🪄 Chakra UI: Editable"
+  },
+  "chakra-forms-editable-preview": {
+    "prefix": "chakra-editable-preview",
+    "body": "<EditablePreview />",
+    "description": "🪄 Chakra UI: Editable preview"
+  },
+  "chakra-forms-editable-input": {
+    "prefix": "chakra-editable-input",
+    "body": "<EditableInput />",
+    "description": "🪄 Chakra UI: Editable input"
+  },
+  "chakra-forms-editable-textarea": {
+    "prefix": "chakra-editable-textarea",
+    "body": "<EditableTextarea />",
+    "description": "🪄 Chakra UI: Editable textarea"
+  },
+  "chakra-forms-form-control": {
+    "prefix": "chakra-form-control",
+    "body": ["<FormControl>", "\t$1", "</FormControl>"],
+    "description": "🪄 Chakra UI: Form control"
+  },
+  "chakra-forms-form-label": {
+    "prefix": "chakra-form-label",
+    "body": "<FormLabel>$1</FormLabel>",
+    "description": "🪄 Chakra UI: Form label"
+  },
+  "chakra-forms-form-error-message": {
+    "prefix": "chakra-form-error-message",
+    "body": "<FormErrorMessage>$1</FormErrorMessage>",
+    "description": "🪄 Chakra UI: Form error message"
+  },
+  "chakra-forms-form-helper-text": {
+    "prefix": "chakra-form-helper-text",
+    "body": "<FormHelperText>$1</FormHelperText>",
+    "description": "🪄 Chakra UI: Form helper text"
+  },
+  "chakra-icon-button": {
+    "prefix": ["chakra-icon-btn", "chakra-icon-button"],
+    "body": ["<IconButton aria-label='$1' icon={$2}/>"],
+    "description": "🪄 Chakra UI: Icon button"
+  },
+  "chakra-input": {
+    "prefix": "chakra-input",
+    "body": "<Input variant='$1' placeholder='$2' />",
+    "description": "🪄 Chakra UI: Input"
+  },
+  "chakra-number-input": {
+    "prefix": "chakra-number-input",
+    "body": [
+      "<NumberInput defaultValue={$1} min={$2} max={$3} step={$2}>",
+      "\t$5",
+      "</NumberInput>"
+    ],
+    "description": "🪄 Chakra UI: Number input"
+  },
+  "chakra-number-input-field": {
+    "prefix": "chakra-number-input-field",
+    "body": "<NumberInputField  />",
+    "description": "🪄 Chakra UI: Number input field"
+  },
+  "chakra-number-input-stepper": {
+    "prefix": "chakra-number-input-stepper",
+    "body": ["<NumberInputStepper>", "\t$1", "</NumberInputStepper>"],
+    "description": "🪄 Chakra UI: Number stepper"
+  },
+  "chakra-number-increment-stepper": {
+    "prefix": "chakra-number-increment-stepper",
+    "body": "<NumberIncrementStepper />",
+    "description": "🪄 Chakra UI: Number increment stepper"
+  },
+  "chakra-number-decrement-stepper": {
+    "prefix": "chakra-number-decrement-stepper",
+    "body": "<NumberDecrementStepper />",
+    "description": "🪄 Chakra UI: Number decrement stepper"
+  },
+  "chakra-pin-input": {
+    "prefix": "chakra-pin-input",
+    "body": ["<PinInput>", "\t$1", "</PinInput>"],
+    "description": "🪄 Chakra UI: Pin input"
+  },
+  "chakra-pin-input-field": {
+    "prefix": "chakra-pin-input-field",
+    "body": "<PinInputField />",
+    "description": "🪄 Chakra UI: Pin input field"
+  },
+  "chakra-radio-group": {
+    "prefix": "chakra-radio-group",
+    "body": ["<RadioGroup onChange={$1} value={$2}>", "\t$1", "</RadioGroup>"],
+    "description": "🪄 Chakra UI: Radio group"
+  },
+  "chakra-radio": {
+    "prefix": "chakra-radio",
+    "body": "<Radio value='$1'>$2</Radio>",
+    "description": "🪄 Chakra UI: Radio"
+  },
+  "chakra-range-slider": {
+    "prefix": "chakra-range-slider",
+    "body": ["<RangeSlider defaultValue={[$1, $2]}>", "\t$3", "</RangeSlider>"],
+    "description": "🪄 Chakra UI: Range slider"
+  },
+  "chakra-range-slider-track": {
+    "prefix": "chakra-range-slider-track",
+    "body": ["<RangeSliderTrack>", "\t$1", "</RangeSliderTrack>"],
+    "description": "🪄 Chakra UI: Range slider track"
+  },
+  "chakra-range-slider-filled-track": {
+    "prefix": "chakra-range-slider-filled-track",
+    "body": "<RangeSliderFilledTrack />",
+    "description": "🪄 Chakra UI: Range slider filled track"
+  },
+  "chakra-range-slider-thumb": {
+    "prefix": "chakra-range-slider-thumb",
+    "body": "<RangeSliderThumb index={$1} />",
+    "description": "🪄 Chakra UI: Range slider thumb"
+  },
+  "chakra-select": {
+    "prefix": "chakra-select",
+    "body": ["<Select placeholder='$1'>", "\t$2", "</Select>"],
+    "description": "🪄 Chakra UI: Select"
+  },
+  "chakra-slider": {
+    "prefix": "chakra-slider",
+    "body": ["<Slider defaultValue={$1}>>", "\t$2", "</Slider>"],
+    "description": "🪄 Chakra UI: Slider"
+  },
+  "chakra-slider-track": {
+    "prefix": "chakra-slider-track",
+    "body": ["<SliderTrack>", "\t$1", "</SliderTrack>"],
+    "description": "🪄 Chakra UI: Slider track"
+  },
+  "chakra-slider-filled-track": {
+    "prefix": "chakra-slider-filled-track",
+    "body": "<SliderFilledTrack />",
+    "description": "🪄 Chakra UI: Slider filled track"
+  },
+  "chakra-slider-thumb": {
+    "prefix": "chakra-slider-thumb",
+    "body": "<SliderThumb />",
+    "description": "🪄 Chakra UI: Slider thumb"
+  },
+  "chakra-switch": {
+    "prefix": "chakra-switch",
+    "body": "<Switch size={$1} id={'$2'} />",
+    "description": "🪄 Chakra UI: Switch"
+  },
+  "chakra-textarea": {
+    "prefix": "chakra-textarea",
+    "body": "<Textarea placeholder='$1' />",
+    "description": "🪄 Chakra UI: Textarea"
+  },
+  "chakra-badge": {
+    "prefix": "chakra-badge",
+    "body": "<Badge variant='$1'>$2</Badge>",
+    "description": "🪄 Chakra UI: Badge"
+  },
+  "chakra-code": {
+    "prefix": "chakra-code",
+    "body": "<Code>$1</Code>",
+    "description": "🪄 Chakra UI: Code"
+  },
+  "chakra-divider": {
+    "prefix": "chakra-divider",
+    "body": "<Divider>$1</Divider>",
+    "description": "🪄 Chakra UI: Divider"
+  },
+  "chakra-kbd": {
+    "prefix": "chakra-kbd",
+    "body": "<Kbd>$1</Kbd>",
+    "description": "🪄 Chakra UI: Kbd"
+  },
+  "chakra-tag": {
+    "prefix": "chakra-tag",
+    "body": "<Tag>$1</Tag>",
+    "description": "🪄 Chakra UI: Tag"
+  },
+  "chakra-avatar": {
+    "prefix": "chakra-avatar",
+    "body": "<Avatar name='$1' src='$2' />",
+    "description": "🪄 Chakra UI: Avatar"
+  },
+  "chakra-icon": {
+    "prefix": "chakra-icon",
+    "body": "<Icon as={$1} w={$2} h={$3} color='$4' />",
+    "description": "🪄 Chakra UI: Icon"
+  },
+  "chakra-image": {
+    "prefix": "chakra-image",
+    "body": "<Image src={$1} alt='$2' />",
+    "description": "🪄 Chakra UI: Image"
+  },
+  "Text": {
+    "prefix": "chakra-text",
+    "body": "<Text variant='$1'>$2</Text>",
+    "description": "🪄 Chakra UI: Text"
+  },
+  "Heading": {
+    "prefix": "chakra-heading",
+    "body": "<Heading as='$1' size='$2' noOfLines={$3}>$4</Heading>",
+    "description": "🪄 Chakra UI: Heading"
+  },
+  "Highlight": {
+    "prefix": "chakra-highlight",
+    "body": ["<Highlight query='$1' style={{ $2 }}>", "$3", "</Highlight>"],
+    "description": "🪄 Chakra UI: Highlight"
+  }
+}
